@@ -283,7 +283,15 @@ public class StandardLockService implements LockService {
                     // another node was faster
                     return false;
                 }
-                database.commit();
+                try {
+                    database.commit();
+                } catch (DatabaseException e) {
+                    // caught lost race condition
+                    LogService.getLog(getClass()).info(LogType.LOG, "Caught acquire change log lock race condidtion");
+                    return false;
+                } finally {
+                    database.rollback();
+                }
                 LogService.getLog(getClass()).info(LogType.LOG, coreBundle.getString("successfully.acquired.change.log.lock"));
 
                 hasChangeLogLock = true;

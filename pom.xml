@@ -4,7 +4,7 @@
 
     <groupId>org.liquibase</groupId>
     <artifactId>liquibase-parent</artifactId>
-    <version>3.7.1-SNAPSHOT</version>
+    <version>3.7.1-Plexxi1</version>
     <packaging>pom</packaging>
 
     <name>Liquibase Parent Configuration</name>
@@ -63,14 +63,14 @@
 
     <distributionManagement>
         <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Sonatype Production Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <id>plexxi.libs.release</id>
+            <name>plexxi-libs-release</name>
+            <url>${plexxi.libs.release-url}</url>
         </repository>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sontatype Snapshot Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>plexxi.libs.snapshot</id>
+            <name>plexxi-libs-snapshot</name>
+            <url>${plexxi.libs.snapshot-url}</url>
         </snapshotRepository>
     </distributionManagement>
 
